@@ -124,6 +124,8 @@ The application strictly separates database operations from HTTP routing and bus
 └────────────────────────────────────────────────────────┘
 ```
 
+The browser UI presents this architecture with a neoclassical visual theme inspired by a historic European hall: a sepia-lit vaulted ceiling with ribs, columns, and a receding stone floor. Translucent sandstone panels and warm borders are tuned to blend into the background; Cormorant Garamond display typography and Lucide line icons complete the visual system. Tactile button geometry and interaction states remain, with darker high-contrast fills for visibility.
+
 ---
 
 ### 3.2 Connection Lifecycle & Driver Loading

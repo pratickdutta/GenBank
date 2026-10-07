@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GenBank — Surreal Banking</title>
-  <meta name="description" content="GenBank: A surrealistic, modern banking portal. Manage accounts, deposits, withdrawals and transfers."/>
+  <title>GenBank — Modern Banking</title>
+  <meta name="description" content="GenBank: A neoclassical banking portal for account management, deposits, withdrawals, and transfers."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
   /* ─── RESET ──────────────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1014,12 +1014,355 @@
     .ticker-strip { display: none; }
     .main-content { padding: 1rem; }
   }
+
+  /* ═════════════════════════════════════ NEOCLASSICAL PAGE THEME */
+  body {
+    background: #eee9df;
+    color: #26352e;
+  }
+  #classical-bg {
+    position: fixed; inset: 0; z-index: 0; overflow: hidden;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 48% 45% at 50% 14%, rgba(255, 247, 225, .9), transparent 76%),
+      linear-gradient(90deg, rgba(111, 82, 49, .13), transparent 17%, transparent 83%, rgba(111, 82, 49, .13)),
+      linear-gradient(180deg, #d8c8ad 0%, #e9dcc5 32%, #ddc9a8 72%, #cbb28b 100%);
+  }
+  #classical-bg::after {
+    content: ''; position: absolute; inset: auto 0 0; height: 12vh;
+    background: linear-gradient(180deg, transparent, rgba(95, 69, 40, .2));
+  }
+  #classical-bg > *:not(.bank-building) { display: none; }
+  .bank-building {
+    position: absolute; z-index: 1; bottom: -8vh; left: 50%;
+    width: min(1480px, 118vw); height: min(78vh, 860px); min-height: 420px;
+    transform: translateX(-50%);
+    display: grid; grid-template-rows: 34% 5% 39% 22%;
+    opacity: .34; filter: drop-shadow(0 8px 18px rgba(87, 67, 39, .14));
+  }
+  .bank-vault {
+    position: relative; overflow: hidden;
+    width: 84%; height: 100%; margin: auto;
+    border: 1px solid rgba(105, 78, 44, .32);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0 / 92% 92% 0 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(255, 250, 235, .58), rgba(173, 143, 101, .13) 65%, rgba(111, 84, 54, .16));
+    box-shadow: inset 0 18px 36px rgba(92, 69, 40, .11);
+  }
+  .bank-vault::before, .bank-vault::after {
+    content: ''; position: absolute; top: 0; bottom: -1px;
+    border: 1px solid rgba(105, 78, 44, .23);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0 / 92% 92% 0 0;
+  }
+  .bank-vault::before { left: 12%; right: 12%; }
+  .bank-vault::after { left: 27%; right: 27%; border-color: rgba(255, 246, 224, .4); }
+  .bank-vault-rib {
+    position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
+    background: linear-gradient(180deg, rgba(105, 78, 44, .29), rgba(105, 78, 44, .04));
+    transform-origin: top center;
+  }
+  .bank-vault-rib:first-child { transform: rotate(-35deg); }
+  .bank-vault-rib:nth-child(2) { transform: rotate(35deg); }
+  .bank-vault-rib:nth-child(3) { transform: rotate(-16deg); }
+  .bank-vault-rib:nth-child(4) { transform: rotate(16deg); }
+  .bank-vault-rosette {
+    position: absolute; left: 50%; top: 7%;
+    width: clamp(30px, 5vw, 72px); aspect-ratio: 1;
+    transform: translateX(-50%);
+    border: 1px solid rgba(105, 78, 44, .27);
+    border-radius: 50%;
+    box-shadow: 0 0 0 7px rgba(105, 78, 44, .045), 0 0 0 14px rgba(105, 78, 44, .035);
+  }
+  .bank-entablature {
+    width: 96%; height: 100%; margin: auto;
+    background: linear-gradient(180deg, rgba(126, 99, 62, .25), rgba(255, 241, 210, .2), rgba(126, 99, 62, .19));
+    border-top: 2px solid rgba(105, 82, 49, .31);
+    border-bottom: 2px solid rgba(105, 82, 49, .3);
+  }
+  .bank-colonnade {
+    width: 86%; height: 100%; margin: auto;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 3.5%;
+  }
+  .bank-column {
+    position: relative;
+    background: linear-gradient(90deg, rgba(115, 86, 50, .21), rgba(250, 237, 210, .43) 28%, rgba(255, 248, 229, .3) 63%, rgba(115, 86, 50, .22));
+    border-left: 1px solid rgba(105, 82, 49, .31);
+    border-right: 1px solid rgba(105, 82, 49, .31);
+  }
+  .bank-column::before, .bank-column::after {
+    content: ''; position: absolute; left: -22%; width: 144%; height: 8%;
+    background: linear-gradient(180deg, rgba(255, 244, 216, .45), rgba(126, 99, 62, .28));
+    border: 1px solid rgba(105, 82, 49, .3);
+  }
+  .bank-column::before { top: 0; }
+  .bank-column::after { bottom: 0; }
+  .bank-steps {
+    width: 100%; height: 100%;
+    background:
+      linear-gradient(0deg, rgba(105, 76, 42, .23), transparent 75%),
+      repeating-linear-gradient(180deg, rgba(105, 82, 49, .18) 0 1px, transparent 1px 14px);
+  }
+  #root { color: #26352e; }
+  ::-webkit-scrollbar-thumb { background: #8b7552; }
+
+  .glass, .tx-panel, .action-card {
+    background: rgba(224, 209, 184, .78);
+    border-color: rgba(126, 99, 62, .32);
+    box-shadow: 0 14px 34px rgba(75, 56, 32, .12);
+    backdrop-filter: blur(12px) saturate(.85);
+    -webkit-backdrop-filter: blur(12px) saturate(.85);
+  }
+  .auth-card { border-radius: 5px; }
+  .auth-logo h1, .nav-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    background: none;
+    color: #263d32;
+    -webkit-text-fill-color: currentColor;
+  }
+  .auth-logo h1 { font-size: 2.8rem; }
+  .auth-tagline { color: #75664d; letter-spacing: .11em; }
+  .logo-emblem, .nav-emblem {
+    border: 1px solid #ad8953;
+    border-radius: 4px;
+    background: #294237;
+    box-shadow: 0 5px 14px rgba(37, 57, 46, .18);
+  }
+  .auth-tabs {
+    background: rgba(226, 211, 187, .58);
+    border-color: rgba(126, 99, 62, .3);
+    border-radius: 5px;
+  }
+  .auth-tab { color: #75664d; }
+  .auth-tab.active {
+    background: #294237;
+    color: #fffdf8;
+    box-shadow: inset 0 0 0 1px rgba(190, 158, 102, .55);
+  }
+  .form-label { color: #685b46; }
+  .form-input {
+    background: rgba(245, 235, 216, .78);
+    border-color: rgba(126, 99, 62, .38);
+    border-radius: 3px;
+    color: #26352e;
+  }
+  .form-input:focus {
+    border-color: #9b7848;
+    box-shadow: 0 0 0 3px rgba(155, 120, 72, .14);
+  }
+  .form-input::placeholder { color: #928875; }
+
+  .navbar {
+    background: rgba(220, 204, 178, .88);
+    border-bottom-color: rgba(126, 99, 62, .32);
+    backdrop-filter: blur(16px);
+  }
+  .nav-title { font-size: 1.65rem; }
+  .nav-user-pill {
+    background: rgba(231, 216, 192, .76);
+    border-color: rgba(126, 99, 62, .32);
+    border-radius: 4px;
+  }
+  .nav-avatar {
+    background: #294237;
+    color: #f8f1e3;
+  }
+  .nav-name { color: #344238; }
+  .ticker-strip { display: none; }
+
+  .hero-card {
+    border-radius: 5px;
+    background: linear-gradient(120deg, rgba(76, 65, 48, .96), rgba(103, 83, 56, .96) 58%, rgba(76, 65, 48, .96));
+    border: 1px solid rgba(134, 103, 62, .72);
+    box-shadow: 0 16px 34px rgba(75, 56, 32, .2);
+  }
+  .hero-card::before, .hero-card::after { display: none; }
+  .hero-deco-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c5a56b 20%, #e2cfaa 50%, #c5a56b 80%, transparent);
+    animation: none;
+  }
+  .hero-label { color: #d0c2a6; }
+  .hero-accno { color: #e4dac7; text-shadow: none; }
+  .hero-badge {
+    background: rgba(220, 234, 219, .12);
+    color: #dce8d8;
+    border-color: rgba(220, 234, 219, .35);
+    box-shadow: none;
+  }
+  .hero-cur { color: #d4b579; text-shadow: none; }
+  .hero-amount {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    background: none;
+    color: #f5efe3;
+    -webkit-text-fill-color: currentColor;
+  }
+  .hero-meta-item { color: #d0c6b3; }
+  .hero-meta-item strong { color: #e0c794; }
+
+  .action-card {
+    border-radius: 4px;
+    color: #2a392f;
+    transition: transform var(--ease), border-color var(--ease), box-shadow var(--ease);
+  }
+  .action-card:hover { box-shadow: 0 12px 26px rgba(53, 43, 28, .12); }
+  .action-card.deposit:hover { border-color: #688475; box-shadow: 0 12px 26px rgba(63, 103, 81, .12); }
+  .action-card.withdraw:hover { border-color: #b08c54; box-shadow: 0 12px 26px rgba(140, 105, 54, .12); }
+  .action-card.transfer:hover { border-color: #9b6c61; box-shadow: 0 12px 26px rgba(124, 75, 63, .12); }
+  .action-icon-wrap { border-radius: 4px; }
+  .action-icon-wrap.deposit { background: #e5eee7; box-shadow: none; }
+  .action-icon-wrap.withdraw { background: #f2eadb; box-shadow: none; }
+  .action-icon-wrap.transfer { background: #efe3df; box-shadow: none; }
+  .action-label {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.2rem;
+    color: #294237;
+    letter-spacing: 0;
+  }
+  .action-sub { color: #756b5b; }
+
+  .tx-panel { border-radius: 4px; }
+  .tx-panel-header {
+    background: rgba(209, 190, 159, .54);
+    border-bottom-color: rgba(126, 99, 62, .25);
+  }
+  .tx-panel-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.3rem;
+    color: #294237;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+  .tx-panel-sub, .tx-date, .empty-state { color: #756b5b; }
+  .tx-item { border-bottom-color: #ebe4d8; }
+  .tx-item:hover { background: rgba(255, 242, 218, .36); }
+  .tx-icon { border-radius: 4px; box-shadow: none !important; }
+  .tx-icon.DEPOSIT { background: #e5eee7; }
+  .tx-icon.WITHDRAWAL { background: #f2eadb; }
+  .tx-icon.TRANSFER { background: #efe3df; }
+  .tx-amount { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; }
+  .tx-amount.DEPOSIT { color: #3f6b50; text-shadow: none; }
+  .tx-amount.WITHDRAWAL { color: #916c3e; text-shadow: none; }
+  .tx-amount.TRANSFER { color: #875449; text-shadow: none; }
+
+  .modal-overlay { background: rgba(35, 42, 35, .52); backdrop-filter: blur(5px); }
+  .modal {
+    border-radius: 5px;
+    background: rgba(231, 216, 192, .97);
+    border-color: rgba(126, 99, 62, .45);
+    box-shadow: 0 20px 55px rgba(29, 38, 31, .22);
+    backdrop-filter: none;
+  }
+  .modal::before { display: none; }
+  .modal-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.45rem;
+    color: #294237;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+  .modal-close { border-color: #c9baa1; color: #695d49; border-radius: 3px; }
+  .modal-close:hover { border-color: #875449; color: #875449; }
+  .alert-error { background: #f4e6e3; border-color: #d8b1a9; color: #773f37; }
+  .alert-success { background: #e6eee6; border-color: #b5c8b6; color: #365943; }
+  .toast { border-radius: 4px; backdrop-filter: blur(8px); }
+  .toast-success { background: #e9f0e7; border-color: #b8c9b5; color: #35543d; box-shadow: 0 8px 24px rgba(41, 66, 55, .12); }
+  .toast-error { background: #f4e6e3; border-color: #d8b1a9; color: #773f37; box-shadow: 0 8px 24px rgba(95, 48, 39, .12); }
+
+  .box-gold {
+    background: linear-gradient(135deg, #365a46, #223b2f);
+    border-color: rgba(211, 180, 119, .72);
+  }
+  .box.start-btn.box-gold:hover:not(:disabled) { background: linear-gradient(135deg, #426b53, #294936); }
+  .box-gold .text { background: none; color: #fffdf6; -webkit-text-fill-color: #fffdf6; }
+  .box-gold .btn-icon { background: linear-gradient(135deg, #d0b06e, #a98445); }
+
+  .box-teal {
+    background: linear-gradient(135deg, #286354, #17483d);
+    border-color: rgba(184, 220, 199, .62);
+  }
+  .box.start-btn.box-teal:hover:not(:disabled) { background: linear-gradient(135deg, #327664, #1c5547); }
+  .box-teal .text { background: none; color: #fffdf6; -webkit-text-fill-color: #fffdf6; }
+  .box-teal .btn-icon { background: linear-gradient(135deg, #c2dbc5, #8bb69a); }
+  .box-teal .btn-icon .svg { fill: #1b493c; }
+
+  .box-violet {
+    background: linear-gradient(135deg, #70473f, #51312f);
+    border-color: rgba(224, 190, 153, .66);
+  }
+  .box.start-btn.box-violet:hover:not(:disabled) { background: linear-gradient(135deg, #81554a, #603a35); }
+  .box-violet .text { background: none; color: #fffdf6; -webkit-text-fill-color: #fffdf6; }
+  .box-violet .btn-icon { background: linear-gradient(135deg, #d8b586, #b98e5c); }
+  .box-violet .btn-icon .svg { fill: #4b302b; }
+
+  .box-rose {
+    background: linear-gradient(135deg, #75403b, #542d2d);
+    border-color: rgba(228, 184, 153, .66);
+  }
+  .box.start-btn.box-rose:hover:not(:disabled) { background: linear-gradient(135deg, #875047, #653735); }
+  .box-rose .text { color: #fff8ed; }
+  .box-rose .btn-icon { background: linear-gradient(135deg, #d6b17d, #ad8050); }
+  .box-rose .btn-icon .svg { fill: #4b302b; }
+
+  .box-ghost {
+    background: linear-gradient(135deg, #f7f1e4, #e6dbc7);
+    border-color: #9e8965;
+  }
+  .box-ghost .text { color: #304537; }
+  .box-ghost .btn-icon { background: #ded0b6; border-color: #b7a17c; }
+  .box-ghost .btn-icon .svg { fill: #304537; }
+  .box-ghost:hover:not(:disabled) {
+    background: linear-gradient(135deg, #365a46, #223b2f);
+    border-color: #c9a766;
+  }
+  .box-ghost:hover:not(:disabled) .text { color: #fff8ed; }
+  .box-ghost:hover:not(:disabled) .btn-icon .svg { fill: #fff8ed; }
+  .box-ghost:hover:not(:disabled) .btn-icon { background: #a98445; }
+
+  .logo-emblem [data-lucide], .nav-emblem [data-lucide] { width: 30px; height: 30px; stroke-width: 1.5; color: #e4d2ad; }
+  .action-icon-wrap [data-lucide] { width: 26px; height: 26px; stroke-width: 1.7; }
+  .action-icon-wrap.deposit [data-lucide], .tx-icon.DEPOSIT [data-lucide] { color: #38654a; }
+  .action-icon-wrap.withdraw [data-lucide], .tx-icon.WITHDRAWAL [data-lucide] { color: #8a6537; }
+  .action-icon-wrap.transfer [data-lucide], .tx-icon.TRANSFER [data-lucide] { color: #805147; }
+  .modal-title [data-lucide] { width: 20px; height: 20px; stroke-width: 1.7; }
+  .tx-icon [data-lucide] { width: 21px; height: 21px; }
+  .state-icon [data-lucide] { width: 28px; height: 28px; display: block; margin: 0 auto .75rem; stroke-width: 1.6; }
+  .state-icon.is-loading [data-lucide] { animation: spin .9s linear infinite; }
+  .toast { display: flex; align-items: center; gap: .65rem; }
+  .toast-icon [data-lucide] { width: 18px; height: 18px; flex: 0 0 auto; }
+
+  @media (max-width: 640px) {
+    .bank-building { width: 112vw; height: 31vh; min-height: 190px; opacity: .24; }
+    .auth-card { padding: 1.5rem; }
+    .hero-card { padding: 1.5rem; }
+    .tx-item { gap: .65rem; padding: .85rem .75rem; }
+    .tx-icon { width: 36px; height: 36px; }
+    .tx-date { white-space: normal; line-height: 1.3; }
+    .tx-amount { font-size: .95rem; }
+  }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════ SURREAL BACKGROUND -->
-<div id="surreal-bg" aria-hidden="true">
+<!-- ═══════════════ CLASSICAL ARCHITECTURAL BACKDROP -->
+<div id="classical-bg" aria-hidden="true">
+  <div class="bank-building">
+    <div class="bank-vault">
+      <span class="bank-vault-rib"></span><span class="bank-vault-rib"></span>
+      <span class="bank-vault-rib"></span><span class="bank-vault-rib"></span>
+      <span class="bank-vault-rosette"></span>
+    </div>
+    <div class="bank-entablature"></div>
+    <div class="bank-colonnade">
+      <span class="bank-column"></span><span class="bank-column"></span><span class="bank-column"></span>
+      <span class="bank-column"></span><span class="bank-column"></span><span class="bank-column"></span>
+    </div>
+    <div class="bank-steps"></div>
+  </div>
   <!-- Aurora clouds -->
   <div class="aurora aurora-1"></div>
   <div class="aurora aurora-2"></div>
@@ -1058,16 +1401,14 @@
   </div>
 </div>
 
-<!-- Finance symbols injected by JS below -->
-
 <div id="root">
 <!-- ═══════════════ AUTH SCREEN -->
 <div id="auth-screen">
   <div class="auth-logo">
-    <div class="logo-emblem">🏦</div>
+    <div class="logo-emblem"><i data-lucide="landmark" aria-hidden="true"></i></div>
     <h1>GenBank</h1>
   </div>
-  <p class="auth-tagline">Where Reality Meets Finance</p>
+  <p class="auth-tagline">Built on trust. Designed for clarity.</p>
 
   <div class="auth-tabs" role="tablist">
     <button class="auth-tab active" id="tab-login"    onclick="switchTab('login')"    role="tab">Sign In</button>
@@ -1087,7 +1428,7 @@
     <div id="login-alert" class="hidden"></div>
     <div class="fx-layer-btn">
       <button class="box start-btn box-gold" id="login-btn" onclick="doLogin()" style="--w: 100%; --h: 66px; --tr: 15%;">
-        <span class="text">Enter the Vault</span>
+        <span class="text">Sign In</span>
         <div class="btn-icon">
           <svg class="svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <path d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z"></path>
@@ -1129,7 +1470,7 @@
     </div>
     <div class="form-group">
       <label class="form-label" for="reg-address">Address</label>
-      <input class="form-input" id="reg-address" type="text" placeholder="123 Surreal Street, City"/>
+      <input class="form-input" id="reg-address" type="text" placeholder="14 Palladian Avenue, City"/>
     </div>
     <div class="form-row">
       <div class="form-group">
@@ -1144,7 +1485,7 @@
     <div id="register-alert" class="hidden"></div>
     <div class="fx-layer-btn">
       <button class="box start-btn box-gold" id="register-btn" onclick="doRegister()" style="--w: 100%; --h: 66px; --tr: 15%;">
-        <span class="text">Manifest Account</span>
+        <span class="text">Open Account</span>
         <div class="btn-icon">
           <svg class="svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <path d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z"></path>
@@ -1161,28 +1502,12 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-brand">
-      <div class="nav-emblem">🏦</div>
+      <div class="nav-emblem"><i data-lucide="landmark" aria-hidden="true"></i></div>
       <span class="nav-title">GenBank</span>
     </div>
 
     <!-- Live ticker strip -->
-    <div class="ticker-strip">
-      <div class="ticker-inner" id="ticker">
-        <span><span class="tick-label">SENSEX</span><span class="tick-up">82,497 ▲0.43%</span></span>
-        <span><span class="tick-label">NIFTY</span><span class="tick-up">25,241 ▲0.51%</span></span>
-        <span><span class="tick-label">USD/INR</span><span class="tick-down">83.94 ▼0.12%</span></span>
-        <span><span class="tick-label">GOLD</span><span class="tick-up">₹73,450 ▲0.8%</span></span>
-        <span><span class="tick-label">BTC</span><span class="tick-up">$62,140 ▲2.1%</span></span>
-        <span><span class="tick-label">HDFC</span><span class="tick-up">1,740 ▲0.3%</span></span>
-        <!-- duplicate for seamless scroll -->
-        <span><span class="tick-label">SENSEX</span><span class="tick-up">82,497 ▲0.43%</span></span>
-        <span><span class="tick-label">NIFTY</span><span class="tick-up">25,241 ▲0.51%</span></span>
-        <span><span class="tick-label">USD/INR</span><span class="tick-down">83.94 ▼0.12%</span></span>
-        <span><span class="tick-label">GOLD</span><span class="tick-up">₹73,450 ▲0.8%</span></span>
-        <span><span class="tick-label">BTC</span><span class="tick-up">$62,140 ▲2.1%</span></span>
-        <span><span class="tick-label">HDFC</span><span class="tick-up">1,740 ▲0.3%</span></span>
-      </div>
-    </div>
+    <div class="nav-spacer"></div>
 
     <div class="nav-user-pill">
       <div class="nav-avatar" id="nav-avatar">G</div>
@@ -1190,7 +1515,7 @@
     </div>
     <div class="fx-layer-btn inline">
       <button class="box start-btn box-rose compact-btn" onclick="doLogout()" style="--w: 100px; --h: 38px; --tr: 15%;">
-        <span class="text">Exit</span>
+        <span class="text">Sign Out</span>
         <div class="btn-icon">
           <svg class="svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <path d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z"></path>
@@ -1225,19 +1550,19 @@
     <!-- Actions -->
     <div class="actions-grid">
       <div class="action-card deposit" onclick="openModal('deposit')">
-        <div class="action-icon-wrap deposit">💎</div>
+        <div class="action-icon-wrap deposit"><i data-lucide="arrow-down-to-line" aria-hidden="true"></i></div>
         <span class="action-label">Deposit</span>
-        <span class="action-sub">Add funds to your vault</span>
+        <span class="action-sub">Add funds to your account</span>
       </div>
       <div class="action-card withdraw" onclick="openModal('withdraw')">
-        <div class="action-icon-wrap withdraw">🪙</div>
+        <div class="action-icon-wrap withdraw"><i data-lucide="arrow-up-from-line" aria-hidden="true"></i></div>
         <span class="action-label">Withdraw</span>
-        <span class="action-sub">Extract from reality</span>
+        <span class="action-sub">Withdraw available funds</span>
       </div>
       <div class="action-card transfer" onclick="openModal('transfer')">
-        <div class="action-icon-wrap transfer">🌀</div>
+        <div class="action-icon-wrap transfer"><i data-lucide="arrow-left-right" aria-hidden="true"></i></div>
         <span class="action-label">Transfer</span>
-        <span class="action-sub">Bend space, send value</span>
+        <span class="action-sub">Send funds to another account</span>
       </div>
     </div>
 
@@ -1245,8 +1570,8 @@
     <div class="tx-panel">
       <div class="tx-panel-header">
         <div>
-          <div class="tx-panel-title">Chronicle of Transactions</div>
-          <div class="tx-panel-sub">Your financial history across time</div>
+          <div class="tx-panel-title">Recent Transactions</div>
+          <div class="tx-panel-sub">A record of your account activity</div>
         </div>
         <div class="fx-layer-btn inline">
           <button class="box start-btn box-ghost compact-btn" onclick="loadTransactions()" style="--w: 125px; --h: 36px; --tr: 15%;">
@@ -1261,7 +1586,7 @@
         </div>
       </div>
       <div id="tx-list" class="tx-list">
-        <div class="empty-state"><span class="emoji">🌌</span>Loading the ledger...</div>
+        <div class="empty-state"><span class="state-icon is-loading"><i data-lucide="loader-circle" aria-hidden="true"></i></span>Loading transactions...</div>
       </div>
     </div>
   </main>
@@ -1274,8 +1599,8 @@
 <div id="modal-deposit" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-deposit')">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-title">💎 Deposit Funds</div>
-      <button class="modal-close" onclick="closeModal('deposit')">✕</button>
+      <div class="modal-title"><i data-lucide="arrow-down-to-line" aria-hidden="true"></i>Deposit Funds</div>
+      <button class="modal-close" onclick="closeModal('deposit')" aria-label="Close"><i data-lucide="x" aria-hidden="true"></i></button>
     </div>
     <div class="form-group">
       <label class="form-label" for="deposit-amount">Amount (₹)</label>
@@ -1284,7 +1609,7 @@
     <div id="deposit-alert" class="hidden"></div>
     <div class="fx-layer-btn">
       <button class="box start-btn box-teal" id="deposit-btn" onclick="doDeposit()" style="--w: 100%; --h: 62px; --tr: 15%;">
-        <span class="text">Infuse Funds</span>
+        <span class="text">Confirm Deposit</span>
         <div class="btn-icon">
           <svg class="svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <path d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z"></path>
@@ -1300,8 +1625,8 @@
 <div id="modal-withdraw" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-withdraw')">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-title">🪙 Withdraw Funds</div>
-      <button class="modal-close" onclick="closeModal('withdraw')">✕</button>
+      <div class="modal-title"><i data-lucide="arrow-up-from-line" aria-hidden="true"></i>Withdraw Funds</div>
+      <button class="modal-close" onclick="closeModal('withdraw')" aria-label="Close"><i data-lucide="x" aria-hidden="true"></i></button>
     </div>
     <div class="form-group">
       <label class="form-label" for="withdraw-amount">Amount (₹)</label>
@@ -1310,7 +1635,7 @@
     <div id="withdraw-alert" class="hidden"></div>
     <div class="fx-layer-btn">
       <button class="box start-btn box-gold" id="withdraw-btn" onclick="doWithdraw()" style="--w: 100%; --h: 62px; --tr: 15%;">
-        <span class="text">Extract Value</span>
+        <span class="text">Confirm Withdrawal</span>
         <div class="btn-icon">
           <svg class="svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <path d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z"></path>
@@ -1326,8 +1651,8 @@
 <div id="modal-transfer" class="modal-overlay hidden" onclick="closeModalOutside(event,'modal-transfer')">
   <div class="modal">
     <div class="modal-header">
-      <div class="modal-title">🌀 Transfer Money</div>
-      <button class="modal-close" onclick="closeModal('transfer')">✕</button>
+      <div class="modal-title"><i data-lucide="arrow-left-right" aria-hidden="true"></i>Transfer Money</div>
+      <button class="modal-close" onclick="closeModal('transfer')" aria-label="Close"><i data-lucide="x" aria-hidden="true"></i></button>
     </div>
     <div class="form-group">
       <label class="form-label" for="transfer-to">Receiver Account Number</label>
@@ -1340,7 +1665,7 @@
     <div id="transfer-alert" class="hidden"></div>
     <div class="fx-layer-btn">
       <button class="box start-btn box-violet" id="transfer-btn" onclick="doTransfer()" style="--w: 100%; --h: 62px; --tr: 15%;">
-        <span class="text">Transmit Wealth</span>
+        <span class="text">Send Transfer</span>
         <div class="btn-icon">
           <svg class="svg" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <path d="M779.180132 473.232045 322.354755 16.406668c-21.413706-21.413706-56.121182-21.413706-77.534887 0-21.413706 21.413706-21.413706 56.122205 0 77.534887l418.057421 418.057421L244.819868 930.057421c-21.413706 21.413706-21.413706 56.122205 0 77.534887 10.706853 10.706853 24.759917 16.059767 38.767955 16.059767s28.061103-5.353938 38.767955-16.059767L779.180132 550.767955C800.593837 529.35425 800.593837 494.64575 779.180132 473.232045z"></path>
@@ -1355,94 +1680,16 @@
 <div id="toast-container"></div>
 
 <!-- ═══════════════ JS -->
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 <script>
   // ── SESSION STATE ───────────────────────────────────────────────────────
   let session = null;
 
   window.addEventListener('DOMContentLoaded', () => {
-    spawnSurrealElements();
+    refreshIcons();
     const saved = sessionStorage.getItem('genbank_session');
     if (saved) { session = JSON.parse(saved); showDashboard(); }
   });
-
-  // ── SURREAL BACKGROUND ELEMENTS ─────────────────────────────────────────
-  function spawnSurrealElements() {
-    const bg = document.getElementById('surreal-bg');
-
-    // Finance symbols
-    const symbols = ['₹','$','€','£','¥','%','∞','◈','⬡','▲','⟁'];
-    const symColors = ['#f5c842','#9b59f5','#00e5cc','#ff4d8d','#ffffff'];
-    for (let i = 0; i < 22; i++) {
-      const el = document.createElement('div');
-      el.className = 'finance-symbol';
-      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-      const size = 14 + Math.random() * 38;
-      el.style.cssText = `
-        left:${Math.random()*100}%;
-        top:${20 + Math.random()*75}%;
-        font-size:${size}px;
-        color:${symColors[Math.floor(Math.random()*symColors.length)]};
-        opacity:0;
-        animation-duration:${7 + Math.random()*14}s;
-        animation-delay:${Math.random()*12}s;
-        text-shadow: 0 0 ${size}px currentColor;
-      `;
-      bg.appendChild(el);
-    }
-
-    // Coins
-    const coinSizes = [28,36,48,60,22];
-    const coinSyms  = ['₹','$','€','¥','₿'];
-    for (let i = 0; i < 10; i++) {
-      const c = document.createElement('div');
-      c.className = 'coin';
-      const sz = coinSizes[Math.floor(Math.random() * coinSizes.length)];
-      c.style.cssText = `
-        width:${sz}px; height:${sz}px;
-        left:${Math.random()*95}%;
-        top:${5 + Math.random()*90}%;
-        font-size:${sz*0.4}px;
-        animation-duration:${5 + Math.random()*8}s;
-        animation-delay:${Math.random()*10}s;
-      `;
-      c.textContent = coinSyms[Math.floor(Math.random() * coinSyms.length)];
-      bg.appendChild(c);
-    }
-
-    // Dripping numbers (stock ticker style)
-    const nums = ['82,497','25,241','73,450','1,740','0.43%','+2.8%','−0.15%','4,200','12,800'];
-    for (let i = 0; i < 15; i++) {
-      const d = document.createElement('div');
-      d.className = 'drip-number';
-      d.textContent = nums[Math.floor(Math.random() * nums.length)];
-      d.style.cssText = `
-        left:${Math.random()*95}%;
-        top:${Math.random()*80}%;
-        animation-duration:${5 + Math.random()*8}s;
-        animation-delay:${Math.random()*15}s;
-        font-size:${9 + Math.random()*8}px;
-        color:${Math.random()>.5 ? '#f5c842':'#00e5cc'};
-      `;
-      bg.appendChild(d);
-    }
-
-    // Candlestick chart lines (horizontal bars)
-    const chartColors = ['#9b59f5','#00e5cc','#f5c842','#ff4d8d'];
-    for (let i = 0; i < 18; i++) {
-      const l = document.createElement('div');
-      l.className = 'chart-line';
-      const w = 40 + Math.random()*120;
-      l.style.cssText = `
-        left:${Math.random()*85}%;
-        top:${Math.random()*100}%;
-        width:${w}px;
-        background:${chartColors[Math.floor(Math.random()*chartColors.length)]};
-        animation-duration:${3+Math.random()*6}s;
-        animation-delay:${Math.random()*6}s;
-      `;
-      bg.appendChild(l);
-    }
-  }
 
   // ── TABS ────────────────────────────────────────────────────────────────
   function switchTab(tab) {
@@ -1467,7 +1714,7 @@
       sessionStorage.setItem('genbank_session', JSON.stringify(session));
       showDashboard();
     } catch(e) { showAlert('login-alert','error',e.message); }
-    finally { setLoading('login-btn', false, 'Enter the Vault'); }
+    finally { setLoading('login-btn', false, 'Sign In'); }
   }
 
   async function doRegister() {
@@ -1484,10 +1731,10 @@
       if (!res.success) throw new Error(res.error);
       session = res.data;
       sessionStorage.setItem('genbank_session', JSON.stringify(session));
-      showToast('success',`✨ Welcome, ${session.customerName}! Account conjured.`);
+      showToast('success',`Welcome, ${session.customerName}! Your account is ready.`);
       showDashboard();
     } catch(e) { showAlert('register-alert','error',e.message); }
-    finally { setLoading('register-btn', false, 'Manifest Account'); }
+    finally { setLoading('register-btn', false, 'Open Account'); }
   }
 
   function doLogout() {
@@ -1520,22 +1767,25 @@
   // ── TRANSACTIONS ──────────────────────────────────────────────────────────
   async function loadTransactions() {
     const c = document.getElementById('tx-list');
-    c.innerHTML = `<div class="empty-state"><span class="emoji">⏳</span>Consulting the ledger...</div>`;
+    c.innerHTML = `<div class="empty-state"><span class="state-icon is-loading"><i data-lucide="loader-circle" aria-hidden="true"></i></span>Loading transactions...</div>`;
+    refreshIcons();
     try {
       const res = await api(`/api/transactions?accountId=${session.accountId}`, 'GET');
       if (!res.success) throw new Error(res.error);
       renderTx(res.data);
     } catch(e) {
-      c.innerHTML = `<div class="empty-state"><span class="emoji">⚠️</span>${e.message}</div>`;
+      c.innerHTML = `<div class="empty-state"><span class="state-icon"><i data-lucide="circle-alert" aria-hidden="true"></i></span>${e.message}</div>`;
+      refreshIcons();
     }
   }
   function renderTx(list) {
     const c = document.getElementById('tx-list');
     if (!list || !list.length) {
-      c.innerHTML = `<div class="empty-state"><span class="emoji">🌌</span>The ledger is empty. Make your first deposit.</div>`;
+      c.innerHTML = `<div class="empty-state"><span class="state-icon"><i data-lucide="book-open" aria-hidden="true"></i></span>The ledger is empty. Make your first deposit.</div>`;
+      refreshIcons();
       return;
     }
-    const icons = {DEPOSIT:'💎', WITHDRAWAL:'🪙', TRANSFER:'🌀'};
+    const icons = {DEPOSIT:'arrow-down-to-line', WITHDRAWAL:'arrow-up-from-line', TRANSFER:'arrow-left-right'};
     const signs = {DEPOSIT:'+', WITHDRAWAL:'−', TRANSFER:'↔'};
     c.innerHTML = list.map(tx => {
       const type = tx.transactionType;
@@ -1543,7 +1793,7 @@
         ? new Date(tx.transactionDate).toLocaleString('en-IN',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'})
         : '—';
       return `<div class="tx-item">
-        <div class="tx-icon ${type}">${icons[type]||'💳'}</div>
+        <div class="tx-icon ${type}"><i data-lucide="${icons[type]||'circle-dollar-sign'}" aria-hidden="true"></i></div>
         <div class="tx-info">
           <div class="tx-desc">${tx.description||type}</div>
           <div class="tx-date">${date}</div>
@@ -1551,6 +1801,7 @@
         <div class="tx-amount ${type}">${signs[type]}₹${fmtAmt(tx.amount)}</div>
       </div>`;
     }).join('');
+    refreshIcons();
   }
 
   // ── BANKING OPS ───────────────────────────────────────────────────────────
@@ -1565,10 +1816,10 @@
       sessionStorage.setItem('genbank_session', JSON.stringify(session));
       updateHero(); closeModal('deposit');
       document.getElementById('deposit-amount').value='';
-      showToast('success',`💎 Deposited ₹${fmtAmt(+amount)} into the vault!`);
+      showToast('success',`Deposited ₹${fmtAmt(+amount)} into your account.`);
       loadTransactions();
     } catch(e) { showAlert('deposit-alert','error',e.message); }
-    finally { setLoading('deposit-btn', false, 'Infuse Funds'); }
+    finally { setLoading('deposit-btn', false, 'Confirm Deposit'); }
   }
 
   async function doWithdraw() {
@@ -1582,10 +1833,10 @@
       sessionStorage.setItem('genbank_session', JSON.stringify(session));
       updateHero(); closeModal('withdraw');
       document.getElementById('withdraw-amount').value='';
-      showToast('success',`🪙 Extracted ₹${fmtAmt(+amount)} from the vault!`);
+      showToast('success',`Withdrew ₹${fmtAmt(+amount)} from your account.`);
       loadTransactions();
     } catch(e) { showAlert('withdraw-alert','error',e.message); }
-    finally { setLoading('withdraw-btn', false, 'Extract Value'); }
+    finally { setLoading('withdraw-btn', false, 'Confirm Withdrawal'); }
   }
 
   async function doTransfer() {
@@ -1604,10 +1855,10 @@
       updateHero(); closeModal('transfer');
       document.getElementById('transfer-to').value='';
       document.getElementById('transfer-amount').value='';
-      showToast('success',`🌀 Transmitted ₹${fmtAmt(+amount)} through the void!`);
+      showToast('success',`Transferred ₹${fmtAmt(+amount)} successfully.`);
       loadTransactions();
     } catch(e) { showAlert('transfer-alert','error',e.message); }
-    finally { setLoading('transfer-btn', false, 'Transmit Wealth'); }
+    finally { setLoading('transfer-btn', false, 'Send Transfer'); }
   }
 
   // ── MODAL HELPERS ─────────────────────────────────────────────────────────
@@ -1639,8 +1890,17 @@
   function showToast(type, msg) {
     const c=document.getElementById('toast-container');
     const t=document.createElement('div');
-    t.className=`toast toast-${type}`; t.textContent=msg; c.appendChild(t);
+    const icon=document.createElement('span');
+    icon.className='toast-icon';
+    icon.innerHTML=`<i data-lucide="${type==='success'?'circle-check':'circle-alert'}" aria-hidden="true"></i>`;
+    t.className=`toast toast-${type}`;
+    t.append(icon, document.createTextNode(msg));
+    c.appendChild(t);
+    refreshIcons();
     setTimeout(()=>t.remove(), 3300);
+  }
+  function refreshIcons() {
+    if (window.lucide) lucide.createIcons({attrs:{'stroke-width':1.7}});
   }
   const fmtAmt = n => Number(n).toLocaleString('en-IN',{minimumFractionDigits:2, maximumFractionDigits:2});
   const fmtAcc = n => n ? n.replace(/(\d{4})(\d{4})(\d{2})/,'$1 $2 $3') : '•••• •••• ••';

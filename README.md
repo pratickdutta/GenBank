@@ -1,13 +1,14 @@
-# 🏦 GenBank — Surreal Banking Portal & JDBC Management System
+# 🏦 GenBank — Neoclassical Banking Portal & JDBC Management System
 
-A full-stack Java banking application featuring an embedded H2 database, a RESTful API backend, and a surrealistic cosmic web interface with tactile liquid-glass controls.
+A full-stack Java banking application featuring an embedded H2 database, a REST API backend, and a neoclassical web interface. Its sculpted tactile controls keep their geometry and press/hover behavior, with a refreshed high-contrast palette.
 
 ---
 
 ## 🚀 Key Features
 - **Zero-Configuration Embedded Database**: Built with H2 (MySQL Mode); no standalone MySQL installation required. Auto-provisions relational tables on startup.
 - **Pure JDBC Core**: Implements Type-4 driver loading, parameterized queries (`PreparedStatement`), `ResultSet` mapping, and ACID transactions (`setAutoCommit(false)`, `commit()`, `rollback()`).
-- **Surrealistic Web Interface**: Dark cosmic theme with floating currency runes, live tickers, glassmorphism cards, and tactile 3D liquid-glass button components.
+- **Neoclassical Web Interface**: A sepia-lit vaulted European hall with ceiling ribs, columns, and a receding stone floor; translucent sandstone panels, brass accents, Cormorant Garamond headings, and Lucide line icons.
+- **Tactile Controls**: Existing 3D button geometry and press/hover states remain, with dark forest, teal-green, oxblood, and stone fills for clearer contrast.
 - **Financial Operations**: User authentication, account creation, real-time balance tracking, deposits, withdrawals, and inter-account fund transfers.
 
 ---
@@ -18,7 +19,7 @@ A full-stack Java banking application featuring an embedded H2 database, a RESTf
 | **Language** | Java 21 / 17 |
 | **Database** | H2 Embedded Database Engine (MySQL Mode) |
 | **Server** | Java Embedded `HttpServer` (REST API) |
-| **Frontend** | HTML5, CSS3 (Surreal Glassmorphism), Vanilla JavaScript |
+| **Frontend** | HTML5, CSS3 (Neoclassical visual theme), Vanilla JavaScript, Lucide icons |
 | **Build & Run** | `run.bat` / Maven |
 
 ---
@@ -42,4 +43,5 @@ A full-stack Java banking application featuring an embedded H2 database, a RESTf
 
 ## 📚 In-Depth Guides
 - [Database & JDBC Integration Guide](MiniBankingSystem/DATABASE_AND_JDBC_GUIDE.md)
+- [Presentation Briefing](MiniBankingSystem/PRESENTATION_BRIEFING.md)
 - [Tactile Button Integration Walkthrough](MiniBankingSystem/tactile_button_integration.md)

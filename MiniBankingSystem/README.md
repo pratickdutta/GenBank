@@ -10,7 +10,7 @@ A Java console application demonstrating core **JDBC** concepts through a simpli
 |-------------|-------------------------------------|
 | Language    | Java 21 / 17                        |
 | Database    | H2 Database Engine (Embedded file)  |
-| Web UI      | HTML5, CSS3, Vanilla JS (Surreal UI)|
+| Web UI      | HTML5, CSS3, Vanilla JS, Lucide icons (Sepia neoclassical hall; blended sandstone panels; high-contrast tactile buttons) |
 | Server      | Embedded `HttpServer` (REST API)    |
 | Build & Run | `run.bat` / Maven                   |
 
