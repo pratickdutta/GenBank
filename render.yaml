@@ -6,7 +6,7 @@ services:
     region: oregon
     dockerfilePath: ./MiniBankingSystem/Dockerfile
     dockerContext: ./MiniBankingSystem
-    healthCheckPath: /
+    healthCheckPath: /health
     disk:
       name: genbank-data
       mountPath: /var/data

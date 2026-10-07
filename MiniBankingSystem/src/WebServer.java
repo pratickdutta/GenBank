@@ -44,6 +44,7 @@ public class WebServer {
         server.createContext("/api/withdraw",      new WithdrawHandler());
         server.createContext("/api/transfer",     new TransferHandler());
         server.createContext("/api/transactions", new TransactionsHandler());
+        server.createContext("/health",            new HealthHandler());
 
         // ── Static file server (serves HTML/CSS/JS from web/ resources) ───────
         server.createContext("/", new StaticFileHandler());

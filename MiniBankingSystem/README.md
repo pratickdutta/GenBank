@@ -37,6 +37,8 @@ docker run --rm -p 10000:10000 -v genbank-data:/var/data genbank
 
 The service uses Render's `PORT` environment variable and binds to `0.0.0.0`. H2 data is stored under `/var/data`, which the Blueprint mounts as a 1 GB persistent disk. Persistent disks require a paid Render web-service plan and limit the service to one instance. The Blueprint therefore selects the `starter` plan; review Render's current pricing and change the region in `render.yaml` if needed before creating the service.
 
+The `GET /health` endpoint checks database connectivity and returns HTTP 200 when ready. Configure UptimeRobot as an HTTP(S) monitor for `https://<your-render-service>.onrender.com/health`. Monitoring pings can detect downtime, but do not guarantee that a Render instance stays awake; instance sleep behavior depends on the selected Render plan.
+
 The default local `db.properties` configuration remains in place unless `GENBANK_DB_URL`, `GENBANK_DB_USER`, or `GENBANK_DB_PASSWORD` is set. Do not deploy this academic/demo application for real financial use: customer passwords are stored in plain text, and the app lacks production-grade authentication and authorization controls. A production launch requires a security redesign and a managed database.
 
 ---
