@@ -26,6 +26,9 @@ public class StaticFileHandler extends BaseHandler {
         MIME_TYPES.put("js",   "application/javascript; charset=UTF-8");
         MIME_TYPES.put("ico",  "image/x-icon");
         MIME_TYPES.put("png",  "image/png");
+        MIME_TYPES.put("jpg",  "image/jpeg");
+        MIME_TYPES.put("jpeg", "image/jpeg");
+        MIME_TYPES.put("webp", "image/webp");
         MIME_TYPES.put("svg",  "image/svg+xml");
     }
 
