@@ -35,6 +35,9 @@ public class DBConnection {
                         "db.properties not found on classpath.");
             }
             PROPS.load(in);
+            applyEnvironmentOverride("GENBANK_DB_URL", "db.url");
+            applyEnvironmentOverride("GENBANK_DB_USER", "db.user");
+            applyEnvironmentOverride("GENBANK_DB_PASSWORD", "db.password");
 
             // Explicitly load the H2 Type-4 JDBC driver
             Class.forName("org.h2.Driver");
@@ -46,6 +49,13 @@ public class DBConnection {
             throw new RuntimeException("Failed to initialise JDBC driver: " + e.getMessage(), e);
         } catch (SQLException e) {
             throw new RuntimeException("Failed to initialise database schema: " + e.getMessage(), e);
+        }
+    }
+
+    private static void applyEnvironmentOverride(String environmentKey, String propertyKey) {
+        String value = System.getenv(environmentKey);
+        if (value != null) {
+            PROPS.setProperty(propertyKey, value);
         }
     }
 

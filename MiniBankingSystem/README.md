@@ -26,6 +26,19 @@ A Java console application demonstrating core **JDBC** concepts through a simpli
 
 > For detailed documentation on database architecture, access options, and JDBC code flow, see **[DATABASE_AND_JDBC_GUIDE.md](DATABASE_AND_JDBC_GUIDE.md)**.
 
+## Deploy to Render
+
+The repository includes a Render Blueprint at `../render.yaml` and a multi-stage Dockerfile. In Render, create a Blueprint from this repository and select `render.yaml`; it builds and runs the Java service with the required persistent disk. For local container testing, run these commands from `MiniBankingSystem`:
+
+```sh
+docker build -t genbank .
+docker run --rm -p 10000:10000 -v genbank-data:/var/data genbank
+```
+
+The service uses Render's `PORT` environment variable and binds to `0.0.0.0`. H2 data is stored under `/var/data`, which the Blueprint mounts as a 1 GB persistent disk. Persistent disks require a paid Render web-service plan and limit the service to one instance. The Blueprint therefore selects the `starter` plan; review Render's current pricing and change the region in `render.yaml` if needed before creating the service.
+
+The default local `db.properties` configuration remains in place unless `GENBANK_DB_URL`, `GENBANK_DB_USER`, or `GENBANK_DB_PASSWORD` is set. Do not deploy this academic/demo application for real financial use: customer passwords are stored in plain text, and the app lacks production-grade authentication and authorization controls. A production launch requires a security redesign and a managed database.
+
 ---
 
 ## JDBC Demonstrations

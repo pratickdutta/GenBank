@@ -18,10 +18,12 @@ import java.util.logging.Logger;
  */
 public class WebServer {
 
-    private static final int    PORT   = 8080;
+    private static final int    DEFAULT_PORT = 8080;
     private static final Logger LOG    = Logger.getLogger(WebServer.class.getName());
 
     public static void main(String[] args) throws IOException {
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", String.valueOf(DEFAULT_PORT)));
+        String host = System.getenv().getOrDefault("HOST", "127.0.0.1");
 
         // Trigger schema initialisation (happens in DBConnection static block)
         LOG.info("[BOOT] Initialising database...");
@@ -32,7 +34,7 @@ public class WebServer {
             throw new RuntimeException(e);
         }
 
-        HttpServer server = HttpServer.create(new InetSocketAddress(PORT), 0);
+        HttpServer server = HttpServer.create(new InetSocketAddress(host, port), 0);
 
         // ── API endpoints ──────────────────────────────────────────────────────
         server.createContext("/api/register",     new RegisterHandler());
@@ -52,7 +54,7 @@ public class WebServer {
         System.out.println("╔══════════════════════════════════════════════════╗");
         System.out.println("║    GenBank Mini Banking System — Web Server      ║");
         System.out.println("╠══════════════════════════════════════════════════╣");
-        System.out.printf( "║  Server running at: http://localhost:%d          ║%n", PORT);
+        System.out.printf("║  Server running at: http://%s:%d%n", host, port);
         System.out.println("║  Database: H2 Embedded (no MySQL needed!)        ║");
         System.out.println("║  Press Ctrl+C to stop.                           ║");
         System.out.println("╚══════════════════════════════════════════════════╝");
