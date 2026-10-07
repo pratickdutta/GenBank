@@ -2,6 +2,8 @@
 
 A full-stack Java banking application featuring an embedded H2 database, a REST API backend, and a neoclassical web interface. Its sculpted tactile controls keep their geometry and press/hover behavior, with a refreshed high-contrast palette.
 
+**Live demo:** [genbank-88l7.onrender.com](https://genbank-88l7.onrender.com)
+
 ---
 
 ## 🚀 Key Features
